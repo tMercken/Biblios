@@ -1,0 +1,90 @@
+
+#top {
+    position: relative;
+    background-color: white;//#036fab couleur bleu (par défaut);
+    color: black;
+    padding: 5px;
+    margin: 0px 0px 10px 0px;
+    //background: url("./images/logo_site.jpg") no-repeat top;
+}
+
+#bottom {
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 10px 0px 0px 0px;
+}
+
+#left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 15%;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px #AAAAAA;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 17%;    
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: black;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: #AFAFAF;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+#header_form {
+    float: right;
+    color: black;
+    text-align: right;
+    width: 30%;
+}
+
+#logo {
+    width: 15%;
+    position: relative;
+    margin-right: 2%;
+}
+
+.command_link {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+}
+
+.command_button {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+}
+
+
+
