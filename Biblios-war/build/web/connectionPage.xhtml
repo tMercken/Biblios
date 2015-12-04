@@ -41,12 +41,12 @@
                         <h:message for="emailInput"></h:message>
                         
                         <h:outputLabel value="Mot de passe : " for="passwordInput"></h:outputLabel>
-                        <h:inputText id="passwordInput"
+                        <h:inputSecret id="passwordInput"
                                      required="true"
                                      validatorMessage="Le mot de passe doit être compris entre 8 et 32 caractères"
                                      requiredMessage="Le mot de passe est obligatoire">
                             <f:validateLength minimum="8" maximum="32"></f:validateLength>
-                        </h:inputText>
+                        </h:inputSecret>
                         <h:message for="passwordInput"></h:message>
                         <h:commandButton value="Valider" />
                     </h:panelGrid>

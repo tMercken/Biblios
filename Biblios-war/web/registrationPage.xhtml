@@ -30,90 +30,47 @@
 
         <div id="content" class="center_content">
             <ui:insert name="content">
-                    <h1>Lorem Ipsum</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
+                    <h1>Registration</h1>
+                    <h:form>
+                        <h:panelGrid columns="2" style="text-align: right">
+                            <h:outputLabel value="First name : " for="firstName"></h:outputLabel>
+                            <h:inputText id="firstName"
+                                         required="true"
+                                requiredMessage="Your first name is required">                                             
+                            </h:inputText>
+                            <h:outputLabel value="Last name : " for="lastName"></h:outputLabel>
+                            <h:inputText id="lastName"
+                                         required="true"
+                                         requiredMessage="Your last name is required">                                             
+                            </h:inputText>
+                            
+                            <h:outputLabel value="Email : " for="emailInput"></h:outputLabel>
+                            <h:inputText id="emailInput"
+                                         required="true"
+                                         requiredMessage="The email is required">                                             
+                            </h:inputText>
+                            
+                            <h:outputLabel value="Password : " for="passwordInput"></h:outputLabel>
+                            <h:inputSecret id="passwordInput"
+                                         required="true"
+                                         requiredMessage="The password is required">                                             
+                            </h:inputSecret>
+                            
+                            <h:outputLabel value="Confirm password : " for="passwordInputConfirmation"></h:outputLabel>
+                            <h:inputSecret id="passwordInputConfirmation"
+                                         required="true"
+                                         requiredMessage="Your have to confirm your password">                                             
+                            </h:inputSecret>                            
+                                                        
+                            
+                            
+                        </h:panelGrid>
+                    </h:form>
                 </ui:insert>
         </div>
 
         <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+            <ui:insert name="bottom"> By T. Mohamed and M. Thierry </ui:insert>
         </div>
 
     </h:body>
