@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     
     <f:view locale="#{internationalizationMB.local}" />
     <f:loadBundle basename="languages.lang" var="message"/>
@@ -16,47 +17,35 @@
     </h:head>
 
     <h:body>
-
-        <div id="top">
-            <h:form id="header_form">
-                <h:commandLink class="command_link" value="#{message.connectionLink}" action="faces/connectionPage.xhtml" />
-                <h:commandLink class="command_link" value="#{message.registrationLink}" action="faces/registrationPage.xhtml"/>
-                <h:commandLink class="command_link" value="#{message.shoppingBagLink}" action="faces/shoppingBagPage.xhtml"/>
-                <h:commandButton class="command_button" value="FR" action="#{internationalizationMB.setToFrench()}"/>
-                <h:commandButton class="command_button" value="EN" action="#{internationalizationMB.setToEnglish()}" />                
-            </h:form>
-            <a href="index.xhtml"><img id="logo" alt="Logo site" src="./images/logo_site.jpg" /></a>
-        </div>
-
-        <div id="content" class="center_content">
-            <ui:insert name="content">
-                <h1>Page de connexion</h1>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content"> 
+            <div class="center_content">
                 <h:form>
+                    <h2>#{message.connectionTitle}</h2>
+                
                     <h:panelGrid columns="3">
-                        <h:outputLabel value="Email : " for="emailInput"></h:outputLabel>
+                        <h:outputLabel value="#{message.connectionEmailLabel} " for="emailInput"></h:outputLabel>
                         <h:inputText id="emailInput"
                                      required="true"
-                                     requiredMessage="L'email est obligatoire">
+                                     requiredMessage="#{message.connectionEmailRequiredMessage}">
                         </h:inputText>
-                        <h:message for="emailInput"></h:message>
+                        <h:message for="emailInput" class="errorMessage"></h:message>
                         
-                        <h:outputLabel value="Mot de passe : " for="passwordInput"></h:outputLabel>
+                        <h:outputLabel value="#{message.connectionPasswordLabel}" for="passwordInput"></h:outputLabel>
                         <h:inputSecret id="passwordInput"
                                      required="true"
-                                     validatorMessage="Le mot de passe doit être compris entre 8 et 32 caractères"
-                                     requiredMessage="Le mot de passe est obligatoire">
+                                     validatorMessage="#{message.connectionPasswordValidatorMessage}"
+                                     requiredMessage="#{message.connectionPasswordRequiredMessage}">
                             <f:validateLength minimum="8" maximum="32"></f:validateLength>
                         </h:inputSecret>
-                        <h:message for="passwordInput"></h:message>
-                        <h:commandButton value="Valider" />
+                        <h:message for="passwordInput" class="errorMessage"></h:message>
+                        
+                        <h:commandButton value="#{message.connectionLoginButton}" />
                     </h:panelGrid>
-                </h:form>                
-            </ui:insert>
-        </div>
-
-        <div id="bottom">
-            <ui:insert name="bottom">By T. Mohamed and M. Thierry</ui:insert>
-        </div>
+                </h:form>
+            </div>
+            </ui:define>
+        </ui:composition>
     </h:body>
 
 </html>

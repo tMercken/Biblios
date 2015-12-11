@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     
     <f:view locale="#{internationalizationMB.local}" />
     <f:loadBundle basename="languages.lang" var="message"/>
@@ -16,63 +17,149 @@
     </h:head>
 
     <h:body>
-
-        <div id="top">
-            <h:form id="header_form">
-                <h:commandLink class="command_link" value="#{message.connectionLink}" action="faces/connectionPage.xhtml" />
-                <h:commandLink class="command_link" value="#{message.registrationLink}" action="faces/registrationPage.xhtml"/>
-                <h:commandLink class="command_link" value="#{message.shoppingBagLink}" action="faces/shoppingBagPage.xhtml"/>
-                <h:commandButton class="command_button" value="FR" action="#{internationalizationMB.setToFrench()}"/>
-                <h:commandButton class="command_button" value="EN" action="#{internationalizationMB.setToEnglish()}" />                
-            </h:form>
-             <a href="index.xhtml"><img id="logo" alt="Logo site" src="./images/logo_site.jpg" /></a>
-        </div>
-
-        <div id="content" class="center_content">
-            <ui:insert name="content">
-                    <h1>Registration</h1>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                <h1>Registration</h1>
                     <h:form>
-                        <h:panelGrid columns="2" style="text-align: right">
-                            <h:outputLabel value="First name : " for="firstName"></h:outputLabel>
+                        <h:panelGrid columns="3" style="text-align: right">
+                            <h:outputLabel value="#{message.firstName} " for="firstName"></h:outputLabel>
                             <h:inputText id="firstName"
+                                         value="#{clientManager.clientToManage.prenom}"
                                          required="true"
-                                requiredMessage="Your first name is required">                                             
+                                         size="30"
+                                         requiredMessage="#{message.requiredError}">                                             
                             </h:inputText>
-                            <h:outputLabel value="Last name : " for="lastName"></h:outputLabel>
+                            <h:message for="firstName" class="errorMessage"></h:message>
+                            
+                            <h:outputLabel value="#{message.lastName} " for="lastName"></h:outputLabel>
                             <h:inputText id="lastName"
+                                         value="#{clientManager.clientToManage.nom}"
+                                         size="30"
                                          required="true"
-                                         requiredMessage="Your last name is required">                                             
+                                         requiredMessage="#{message.requiredError}">                                             
                             </h:inputText>
+                            <h:message for="lastName" class="errorMessage"></h:message>
                             
                             <h:outputLabel value="Email : " for="emailInput"></h:outputLabel>
                             <h:inputText id="emailInput"
+                                         value="#{clientManager.clientToManage.mail}"
+                                         size="30"
                                          required="true"
-                                         requiredMessage="The email is required">                                             
+                                         requiredMessage="#{message.requiredError}">                                             
                             </h:inputText>
+                            <h:message for="emailInput" class="errorMessage"></h:message>
                             
-                            <h:outputLabel value="Password : " for="passwordInput"></h:outputLabel>
+                            <h:outputLabel value="#{message.password} " for="passwordInput"></h:outputLabel>
                             <h:inputSecret id="passwordInput"
+                                           value="#{clientManager.clientToManage.password}"
+                                           size="30"
                                          required="true"
-                                         requiredMessage="The password is required">                                             
+                                         requiredMessage="#{message.requiredError}">                                             
                             </h:inputSecret>
+                            <h:message for="passwordInput" class="errorMessage"></h:message>
                             
-                            <h:outputLabel value="Confirm password : " for="passwordInputConfirmation"></h:outputLabel>
+                            <h:outputLabel value="#{message.confirmPassword} " for="passwordInputConfirmation"></h:outputLabel>
                             <h:inputSecret id="passwordInputConfirmation"
+                                           value="#{clientManager.passwordToConfirm}"
+                                           size="30"
+                                           required="true"
+                                           requiredMessage="#{message.requiredError}">                                             
+                            </h:inputSecret>
+                            <h:message for="passwordInputConfirmation" class="errorMessage"></h:message>
+                            
+                            <h:outputLabel value="#{message.phone} " for="telephoneInput"></h:outputLabel>
+                            <h:inputText id="telephoneInput"
+                                         value="#{clientManager.clientToManage.telephone}"
+                                         size="30"
+                                         required="false">                                             
+                            </h:inputText>
+                            <h:message for="telephoneInput"></h:message>
+                            
+                            <h:outputLabel value="#{message.street} " for="streetInput"></h:outputLabel>
+                            <h:inputText id="streetInput" 
+                                         value="#{clientManager.street}"
+                                         size="30"
                                          required="true"
-                                         requiredMessage="Your have to confirm your password">                                             
-                            </h:inputSecret>                            
-                                                        
+                                         requiredMessage="#{message.requiredError}">                                             
+                            </h:inputText>
+                            <h:message for="streetInput" class="errorMessage"></h:message>
                             
+                            <h:outputLabel value="#{message.areaCode} " for="areaCodeInput"></h:outputLabel>
+                            <h:inputText id="areaCodeInput"
+                                         size="30"
+                                         value="#{clientManager.areaCode}"
+                                         required="true"
+                                         requiredMessage="#{message.requiredError}">                                             
+                            </h:inputText>
+                            <h:message for="areaCodeInput" class="errorMessage"></h:message>
                             
+                            <h:outputLabel value="#{message.city} " for="cityInput"></h:outputLabel>
+                            <h:inputText id="cityInput"
+                                         value="#{clientManager.city}"
+                                         size="30"
+                                         required="true"
+                                         requiredMessage="#{message.requiredError}">                                             
+                            </h:inputText>
+                            <h:message for="cityInput" class="errorMessage"></h:message>
+                            
+                            <h:outputLabel value="#{message.country} " for="countryInput"></h:outputLabel>
+                            <h:inputText id="countrytInput"
+                                         value="#{clientManager.country}"
+                                         size="30"
+                                         required="true"
+                                         requiredMessage="#{message.requiredError}">                                             
+                            </h:inputText>
+                            <h:message for="countrytInput" class="errorMessage"></h:message>
+                            
+                            <h:outputLabel value="#{message.birthDate} " for="birthDate"></h:outputLabel>
+                            <h:panelGroup>                                
+                                <h:selectOneMenu id="daysList" value="#{clientManager.day}" style="margin-right:9px">
+                                    <c:forEach items="#{birthDateManager.days}" var="days">                                    
+                                        <f:selectItem id="#{days.id}" itemValue="#{days.value}" itemLabel="#{days.name}"/>                                    
+                                    </c:forEach>
+                                </h:selectOneMenu>
+                                
+                                <h:selectOneMenu id="monthList" value="#{clientManager.month}" style="margin-right:9px">
+                                    <c:if test="#{internationalizationMB.local == 'en'}">
+                                        #{birthDateManager.generateEnglishMonths()}
+                                        <c:forEach items="#{birthDateManager.months}" var="months">                                                                         
+                                            <f:selectItem id="#{months.id}" itemValue="#{months.value}" itemLabel="#{months.name}"/>                                                                               
+                                        </c:forEach>
+                                    </c:if>
+                                    <c:if test="#{internationalizationMB.local == 'fr'}">
+                                         #{birthDateManager.generateFrenchMonths()}
+                                        <c:forEach items="#{birthDateManager.months}" var="months">                                                                                    
+                                            <f:selectItem id="#{months.id}" itemValue="#{months.value}" itemLabel="#{months.name}"/>                                                                               
+                                        </c:forEach>
+                                    </c:if>                                    
+                                </h:selectOneMenu>                               
+                          
+                                <h:selectOneMenu id="yearsList" value="#{clientManager.year}">
+                                    <c:forEach items="#{birthDateManager.years}" var="years">                                    
+                                        <f:selectItem id="#{years.id}" itemValue="#{years.value}" itemLabel="#{years.name}"/>                                    
+                                    </c:forEach>
+                                </h:selectOneMenu>
+                            </h:panelGroup>
+                            <h:messages for="birthDate"></h:messages>
+                            
+                            <h:outputLabel value="#{message.gender} " for="gender"></h:outputLabel>
+                            <h:panelGroup>                                
+                                <h:selectOneRadio id="gender" 
+                                                  value="#{clientManager.clientToManage.sex}" 
+                                                  layout="lineDirection"
+                                                  required="true"
+                                                  requiredMessage="#{message.requiredError}">
+                                    <f:selectItem itemLabel=" #{message.male}"  itemValue="m"/>
+                                    <f:selectItem itemLabel=" #{message.female}" itemValue="f" />
+                                </h:selectOneRadio>                                
+                            </h:panelGroup>
+                            <h:message for="gender" class="errorMessage"></h:message>
+                            
+                            <h:commandButton class="command_button_validation" value="Submit" action="faces/index.xhtml"/>                            
                         </h:panelGrid>
                     </h:form>
-                </ui:insert>
-        </div>
-
-        <div id="bottom">
-            <ui:insert name="bottom"> By T. Mohamed and M. Thierry </ui:insert>
-        </div>
-
+            </ui:define>
+        </ui:composition>
     </h:body>
 
 </html>

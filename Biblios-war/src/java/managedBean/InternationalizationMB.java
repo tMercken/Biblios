@@ -12,7 +12,7 @@ import java.util.Locale;
 
 /**
  *
- * @author Demahom
+ * @author client
  */
 @Named(value = "internationalizationMB")
 @SessionScoped
@@ -23,7 +23,7 @@ public class InternationalizationMB implements Serializable {
      */
     public InternationalizationMB() {
     }
-
+    
     public Locale getLocal() {
         return local;
     }
@@ -34,6 +34,9 @@ public class InternationalizationMB implements Serializable {
     
     public void setToEnglish() {
         this.setLocal(new Locale("en"));
+    }
+    public String getCurrentLanguage() {
+        return this.local.getDisplayLanguage();
     }
     public void setLocal(Locale local) {
         this.local = local;

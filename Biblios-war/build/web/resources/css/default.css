@@ -16,6 +16,14 @@ h1, h2 {
     color: #D20005;
 }
 
+#copyrightBottom {
+    margin-left: 15%;
+}
+.errorMessage {
+    font-size: x-small ;
+    color: red;
+}
+
 a:link, a:visited {
   color: #045491;
   font-weight : bold;

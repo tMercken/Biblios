@@ -5,14 +5,16 @@
     color: black;
     padding: 5px;
     margin: 0px 0px 10px 0px;
+    
     //background: url("./images/logo_site.jpg") no-repeat top;
 }
 
 #bottom {
-    position: relative;
+    position: absolute; 
+    width: 98% ;
+    bottom:5px;
     background-color: #c2dfef;
-    padding: 5px;
-    margin: 10px 0px 0px 0px;
+    margin-right: 2%;
 }
 
 #left {
@@ -65,7 +67,7 @@
     float: right;
     color: black;
     text-align: right;
-    width: 30%;
+    width: 50%;
 }
 
 #logo {

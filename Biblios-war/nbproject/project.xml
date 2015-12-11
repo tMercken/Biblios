@@ -6,15 +6,16 @@
             <name>Biblios-war</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
+                <library dirs="200">
+                    <file>${file.reference.cdi-api-1.2.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
                 <library dirs="100">
                     <file>${reference.Biblios-ejb.dist}</file>
-                </library>
-                <library dirs="200">
-                    <file>${reference.BibliosModel.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.cdi-api-2.0-EDR1.jar}</file>
+                    <file>${reference.BibliosModel.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
