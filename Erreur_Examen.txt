@@ -1,0 +1,7 @@
+Liste de erreurs trouvées par la prof : 
+
+	La fonction remove de la hasmap (caddie) ne fonctionne pas,
+	pas très convivial, il faudrait un message quand on s'est bien inscrit, qu'on a bien passé commande
+	converter pas très au point
+	après avoir choisit le nombre d'exmplaires à mettre dans le panier, remettre ce nombre par défaut à 1
+	fautes d'orthographe (livres avec 's')

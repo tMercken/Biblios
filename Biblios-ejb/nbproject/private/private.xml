@@ -3,24 +3,36 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/LivreFacadeLocal.java</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/LivreFacade.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/LignecommandeFacade.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/CategorieFacade.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityBeans/Categorie.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/businessSessionBean/LivreSessionBeanLocal.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/LangueFacade.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/LignecommandeFacadeLocal.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/AbstractFacade.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/TraductioncategorieFacadeLocal.java</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityBeans/Client.java</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/PromoFacade.java</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/ClientFacade.java</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityBeans/Livre.java</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/PromoFacadeLocal.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityBeans/Lignecommande.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityBeans/Traductionlivre.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/businessSessionBean/ClientSessionBeanLocal.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/businessSessionBean/LivreSessionBean.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/businessSessionBean/CommandeSessionBeanLocal.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/businessSessionBean/ClientSessionBean.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/ClientFacadeLocal.java</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/businessSessionBean/CategorieSessionBean.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/TraductionlivreFacade.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/CommandeFacade.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/LivreFacadeLocal.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/LivreFacade.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/AuteurFacade.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityBeans/Client.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityBeans/Maisonedition.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/PromoFacade.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/ClientFacade.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/businessSessionBean/CommandeSessionBean.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityBeans/Livre.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/PromoFacadeLocal.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/businessSessionBean/CategorieSessionBean.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/AuteurFacadeLocal.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-ejb/src/java/entityFacades/CommandeFacadeLocal.java</file>
         </group>
     </open-files>
 </project-private>

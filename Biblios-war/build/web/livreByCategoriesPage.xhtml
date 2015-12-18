@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view locale="#{internationalizationMB.local}" />
+    <h:body>
+        <f:loadBundle basename="languages.lang" var="message"/>
+
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                <h:form>
+                <c:if test="#{internationalizationMB.isInFrench()}"><h2>#{livreManager.selectedCategory.tradFR}</h2></c:if>
+                <c:if test="#{internationalizationMB.isInEnglish()}"><h2>#{livreManager.selectedCategory.tradEN}</h2></c:if>
+                <h:panelGrid columns="3" style="text-align: left" columnClasses="colonnes">
+                <c:forEach items="#{livreManager.listLivre}" var="livre">
+                    
+                    <h:column>
+                        <a href="#{livreManager.seeMore(livre)}"> <h:graphicImage class="coverPic" alt="#{message.seeMore}"  url="#{livre.image}" /> </a>
+                    </h:column>
+                    
+                    <h:column >
+                        <c:if test="#{internationalizationMB.isInFrench()}">
+                            <h:outputText class="livreDescription" id="livreTitre" value="#{message.title} : #{livre.tradTitreFR}" /><br /><br />
+                        </c:if>                        
+                        <c:if test="#{internationalizationMB.isInEnglish()}">
+                            <h:outputText class="livreDescription" id="livreTitre" value="#{message.title} : #{livre.tradTitreEN}" /> <br /><br />
+                        </c:if>
+                        
+                        <h:outputText class="livreNote" value="#{message.note} : #{livre.note} /20"/> <br /><br/>
+                        
+                        <c:if test="#{livre.isInPromo()}">
+                            <h:outputText class="livrePromo" value="#{message.deal}"/> <br />
+                        </c:if>
+                        <h:outputText class="livreDescription" value="#{livre.returnPriceWithPromo()}" converter="PriceConverter">
+                        </h:outputText><br /><br />                        
+                    </h:column>
+                    
+                    <h:column><h:commandButton value="#{message.seeMore}" action="#{livreManager.seeMore(livre)}"/><br /><br /></h:column>
+                </c:forEach>
+                </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

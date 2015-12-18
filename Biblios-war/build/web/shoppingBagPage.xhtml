@@ -7,7 +7,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     
     <f:view locale="#{internationalizationMB.local}" />
-    <f:loadBundle basename="languages.lang" var="message"/>
+    
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,37 +17,66 @@
     </h:head>
 
     <h:body>
-
-        <div id="top">
-            <h:form id="header_form">                
-                <c:if test="#{empty clientManager.clientToManage.prenom}">
-                    <h:commandLink class="command_link" value="#{message.connectionLink}" action="faces/connectionPage.xhtml" />
-                    <h:commandLink class="command_link" value="#{message.registrationLink}" action="faces/registrationPage.xhtml"/>
-                    <h:commandLink class="command_link" value="#{message.shoppingBagLink}" action="faces/shoppingBagPage.xhtml"/>
-                </c:if>
-                <c:if test="#{not empty clientManager.clientToManage.prenom}">
-                    <ui:insert>Welcom, #{clientManager.clientToManage}</ui:insert>
-                    <h:commandLink class="command_link" value="Mon compte" action="faces/index.xhtml"/>
-                    <h:commandLink class="command_link" value="#{message.shoppingBagLink}(0)" action="faces/shoppingBagPage.xhtml"/>
+        <f:loadBundle basename="languages.lang" var="message"/>
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content"> 
+            <h:form>
+            <h2>#{message.basketTitle}</h2>
+            <h:dataTable value="#{commandeManager.listTemp}" var="ligneCommande" border="0" style="width: 100%">
+                <h:column >
+                    <f:facet name="header" class="basketTable" >
+                        <h:outputText value="#{message.title}" />
+                    </f:facet>
+                    <c:if test="#{internationalizationMB.isInFrench()}">
+                        <h:outputText id="livreTitreFR" value="#{ligneCommande.livreCommande.tradTitreFR}" class="basketColumn" style="margin-left: 15%"/>
+                    </c:if>
+                    <c:if test="#{internationalizationMB.isInEnglish()}">
+                        <h:outputText id="livreTitreEN" value="#{ligneCommande.livreCommande.tradTitreEN}" class="basketColumn" style="margin-left: 15%"/>
+                    </c:if>
+                </h:column>
+                    
+                <h:column>
+                    <f:facet name="header" class="basketTable">
+                        <h:outputText value="#{message.priceForOne}"/>
+                    </f:facet>
+                    <h:outputText value="#{ligneCommande.livreCommande.priceWithPromoString()}" class="basketColumn" style="margin-left: 15%"/>
+                </h:column>
+                    
+                <h:column>
+                    <f:facet name="header" class="basketTable">
+                        <h:outputText value="#{message.totalPrice}"/> 
+                    </f:facet>
+                    <h:outputText value="#{ligneCommande.returnPrixLigneString()}" class="basketColumn" style="margin-left: 15%"/>
+                </h:column>
+                    
+                <h:column>
+                    <f:facet name="header" class="basketTable">
+                        <h:outputText value="#{message.quantity}"/>
+                    </f:facet>
+                    <div class="basketColumn">
+                        <h:commandLink class="modifieQuantity" value="-" action="#{commandeManager.removeOne(ligneCommande)}" style="margin-left: 20%"/>
+                        <h:outputText value="  #{ligneCommande.quantite}  "/>
+                        <h:commandLink class="modifieQuantity" value="+" action="#{commandeManager.addOne(ligneCommande)}"/>
+                    </div>
+                </h:column>
+                
+                <h:column>
+                    <h:commandButton class="command_button_validation" value="#{message.remove}" action="#{commandeManager.removeLivreFromBasket(ligneCommande.id)}"/> 
+                </h:column>
+                </h:dataTable><br/><br/>
+                
+                <h:outputText value="#{message.costForAll} : #{commandeManager.totalPriceString()}" style=" margin-right: 10%"  class="totalOrder"/><br/><br/>
+                
+                <c:if test="#{empty clientManager.clientToManage}">
+                    <h:outputText class="errorMessage" value="#{message.connectYourself}" /> 
                 </c:if>
                 
-                <h:commandButton class="command_button" value="FR" action="#{internationalizationMB.setToFrench()}"/>
-                <h:commandButton class="command_button" value="EN" action="#{internationalizationMB.setToEnglish()}" />                
+                <c:if test="#{not empty clientManager.clientToManage}">
+                    <h:commandButton class="command_button_validation_commande" style="margin-left: 45%" value="#{message.validateOrder}" action="#{commandeManager.saveCommande()}"/> 
+                </c:if>
             </h:form>
-             <a href="index.xhtml"><img id="logo" alt="Logo site" src="./images/logo_site.jpg" /></a>
-        </div>
-
-        <div id="content" class="center_content">
-            <ui:insert name="content">
-                <h1>Mon panier</h1>
-                <p>Le panier est vide</p>                    
-            </ui:insert>
-        </div>
-
-        <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
-        </div>
-
+            </ui:define>
+        </ui:composition>
     </h:body>
 
 </html>

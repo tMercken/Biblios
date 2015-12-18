@@ -17,11 +17,90 @@ h1, h2 {
 }
 
 #copyrightBottom {
-    margin-left: 15%;
+    margin-left: 8%;
 }
+
+.requiredWarning {
+    font-size: xx-small ;
+    font-style: oblique;
+}
+
+.livrePromo {
+    font-style: oblique;
+    color: red;    
+}
+
+.confirmationMessage{
+    font-weight: bold;
+    color: green;
+}
+
+#logo {
+    width: 15%;
+    position: relative;
+    margin-right: 2%;
+}
+
+.coverPic {
+    width: 150px;
+    position: relative;
+}
+
+.livreDetailDescription{
+    //float: right;
+    //margin-right: 40%;
+}
+
+.colonnes{
+    width: 30%;
+    background-color: #e6e6e6 ;
+}
+
+.columnListCover{
+    width: fit-content;
+}
+
+.columnListInformation{
+    width:auto;
+}
+
 .errorMessage {
+    text-align: left;
     font-size: x-small ;
     color: red;
+}
+
+.oldPrice{
+    text-decoration-line: line-through;
+    
+}
+
+.command_button_validation_commande{
+    text-align: center;
+}
+
+.totalOrder{
+    color: #0033cc;
+    margin-right: 10%; 
+}
+
+.criticalErrorMessage {
+    font-size: medium ;
+    color: red;
+}
+
+.basketTable{
+    padding-left: 0%;
+    padding-right: 5%;
+        
+}
+
+.basketColumn{    
+    padding-left: 15%;
+}
+
+.forEachContent{
+    background-color: #e6e6e6;
 }
 
 a:link, a:visited {

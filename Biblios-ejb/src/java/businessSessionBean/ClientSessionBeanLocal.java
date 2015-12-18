@@ -19,7 +19,7 @@ public interface ClientSessionBeanLocal {
     
     model.Client getClientByMail(String mail);
 
-    model.Client getClientByMailAndPassword(String mail, String password);
+    Boolean getClientByMailAndPassword(String mail, String password);
 
     Boolean isMailAlreadyUsed(String mail);
 

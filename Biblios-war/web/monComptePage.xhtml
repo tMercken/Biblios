@@ -10,6 +10,8 @@
     <f:view locale="#{internationalizationMB.local}" />
     
     <h:body>
+        <f:loadBundle basename="languages.lang" var="message"/>
+
         <ui:composition template="./template.xhtml">
             <ui:define name="content">
                 <h:outputText value="Welcom"/>

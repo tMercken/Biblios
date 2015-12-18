@@ -34,14 +34,14 @@ public class ClientSessionBean implements ClientSessionBeanLocal {
     }
 
     @Override
-    public model.Client getClientByMailAndPassword(String mail, String password) {
+    public Boolean getClientByMailAndPassword(String mail, String password) {
         return clientFacade.getClientFromMailAndPassword(mail, password);
     }
 
-    @Override
-    
+    @Override    
     public Boolean isMailAlreadyUsed(String mail) {
-        model.Client client = clientFacade.getClientFromMail(mail);
+        model.Client client;
+        client = clientFacade.getClientFromMail(mail);
         
         if (client == null){
             return false;
@@ -53,7 +53,9 @@ public class ClientSessionBean implements ClientSessionBeanLocal {
 
     @Override
     public void addClient(Client newClient) {
-        clientFacade.addClient(newClient);
+        if( newClient.getNom() != null && newClient.getPrenom() != null && newClient.getMail() != null && newClient.getPassword() != null){
+            clientFacade.addClient(newClient);
+        }
     }
     
     

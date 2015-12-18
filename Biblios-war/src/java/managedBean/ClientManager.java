@@ -28,10 +28,21 @@ public class ClientManager implements Serializable {
     private ClientSessionBeanLocal clientSessionBean;  
     
     private model.Client clientToManage;
+    //register
+    private String sex;
+    private Integer phoneNumber;
+    private String nom;
+    private String prenom;
+    private String street,areaCode,city,country;    
+    private Integer day,month,year;
+    private String emailRegistration;
+    private String passwordRegistration;
     private String passwordToConfirm;
-    private String street,areaCode,city,country;
-    private Integer day,month,year;    
-    private String testString = "ceci est un test";
+    //connection
+    private String emailConnection;
+    private String passwordConnection;
+    private Boolean showNoResultErrorMessage;
+    private Boolean connectionExecuted;
     
     public void exitClient (){
         this.clientToManage = null;
@@ -46,21 +57,58 @@ public class ClientManager implements Serializable {
         return clientSessionBean.getClientByMail(m);
     }
     
-    public Client clientFromMailAndPassword(String m, String p){
+    public Boolean clientFromMailAndPassword(String m, String p){
         return clientSessionBean.getClientByMailAndPassword(m, p);
     }  
 
     public void addClient () {
         clientSessionBean.addClient(clientToManage);
     }    
+    
+    public String login(){
+        if (passwordConnection != null && emailConnection != null){
+            if (clientSessionBean.getClientByMailAndPassword(emailConnection, passwordConnection)){
+                this.clientToManage = clientSessionBean.getClientByMail(emailConnection);
+                this.connectionExecuted = true;
+                return "index.xhtml";
+            }
+            else {
+                showNoResultErrorMessage = true;
+            }
+        }
+        return "connectionPage.xhtml";
+    } 
+    
+    public String showWelcomAfterConnect(){
+        this.connectionExecuted = false;
+        return "#{message.connectionExecuted}";
+    }
+    
+    public String register(){
+        if( nom != null && prenom != null && street != null && areaCode != null && city != null && country != null && emailRegistration != null && passwordRegistration != null &&  passwordToConfirm.equals(passwordRegistration)){
+            String adresse = street + " " + areaCode + " " + city + " " + country;
+            GregorianCalendar dateDeNaissance = new GregorianCalendar(year, month, day );
+            
+            this.clientToManage = new model.Client(emailRegistration, passwordRegistration, nom, prenom, dateDeNaissance, adresse, sex, phoneNumber);
+            clientSessionBean.addClient(clientToManage);
+            this.connectionExecuted = true;
+            return "index.xhtml";            
+        }        
+        return "index.xhtml";
+    }
    
     public int countNbClient(){
         return clientSessionBean.countAllClient();
     }
     
     public ClientManager() {
-        this.clientToManage = new model.Client("bobMail", "bobPassword", "Bob","Bob","BobAdresse","M",4003);
-    }    
+        this.showNoResultErrorMessage = false;
+        this.connectionExecuted = false;
+    }  
+    
+    public Boolean isMailAlreadyUsed(String mail){
+        return clientSessionBean.isMailAlreadyUsed(mail);
+    }
 
     public String getPasswordToConfirm() {
         return passwordToConfirm;
@@ -130,15 +178,90 @@ public class ClientManager implements Serializable {
         return clientToManage;
     }
 
-    public String getTestString() {
-        return testString;
+    public String getSex() {
+        return sex;
     }
 
-    public void setTestString(String testString) {
-        this.testString = testString;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
+
+    public Integer getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Integer phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }    
     
     public void setClientToManage(Client clientToManage) {
         this.clientToManage = clientToManage;
     }
+
+    public String getEmailConnection() {
+        return emailConnection;
+    }
+
+    public void setEmailConnection(String emailConnection) {
+        this.emailConnection = emailConnection;
+    }
+
+    public String getPasswordConnection() {
+        return passwordConnection;
+    }
+
+    public Boolean getShowNoResultErrorMessage() {
+        return showNoResultErrorMessage;
+    }
+
+    public void setShowNoResultErrorMessage(Boolean showNoResultErrorMessage) {
+        this.showNoResultErrorMessage = showNoResultErrorMessage;
+    }
+
+    public void setPasswordConnection(String passwordConnection) {
+        this.passwordConnection = passwordConnection;
+    }
+
+    public String getEmailRegistration() {
+        return emailRegistration;
+    }
+
+    public void setEmailRegistration(String emailRegistration) {
+        this.emailRegistration = emailRegistration;
+    }
+
+    public String getPasswordRegistration() {
+        return passwordRegistration;
+    }
+
+    public void setPasswordRegistration(String passwordRegistration) {
+        this.passwordRegistration = passwordRegistration;
+    }
+
+    public Boolean getConnectionExecuted() {
+        return connectionExecuted;
+    }
+
+    public void setConnectionExecuted(Boolean connectionExecuted) {
+        this.connectionExecuted = connectionExecuted;
+    }
+    
+    
+    
 }

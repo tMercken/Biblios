@@ -40,18 +40,12 @@ public class CategorieFacade extends AbstractFacade<Categorie> implements Catego
         for(int i = 0; i < myListEntity.size(); i++ ){
             Categorie categorieEntity = myListEntity.get(i);
             
-            List<Traductioncategorie> traductionCategorieListEntity = (List) categorieEntity.getTraductioncategorieCollection();
-            List<model.TraductionCategorie> traductionCategorieListModel = new ArrayList<model.TraductionCategorie>();
-            for (int j = 0; j < traductionCategorieListEntity.size(); j++ ) {
-                Traductioncategorie tradCategorieEntity = traductionCategorieListEntity.get(j);
-                Langue langueTraductionEntity = tradCategorieEntity.getIdlangue();
-                model.Langue langueTraductionModel = new model.Langue(langueTraductionEntity.getId(), langueTraductionEntity.getLibelle(), langueTraductionEntity.getDrapeau()); 
-                
-                model.TraductionCategorie newTraductionModel = new model.TraductionCategorie(tradCategorieEntity.getId(), tradCategorieEntity.getLibelle(), langueTraductionModel);
-                traductionCategorieListModel.add(newTraductionModel);
-            }            
+            List<Traductioncategorie> traductionCategorieListEntity = (List<Traductioncategorie>) categorieEntity.getTraductioncategorieCollection();
             
-            model.Categorie newCategorie = new model.Categorie(categorieEntity.getId(), traductionCategorieListModel); //categorieEntity.getId(), categorieEntity);
+            model.Categorie newCategorie = new model.Categorie();
+            newCategorie.setId(categorieEntity.getId());
+            newCategorie.setTradFR(traductionCategorieListEntity.get(0).getLibelle());
+            newCategorie.setTradEN(traductionCategorieListEntity.get(1).getLibelle());           
             myListModel.add(newCategorie);
         }
         return myListModel;    

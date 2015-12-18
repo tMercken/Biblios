@@ -6,16 +6,31 @@
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/template.xhtml</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/languages/lang_en.properties</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/languages/lang.properties</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/validators/PasswordValidator.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/livreBySearch.xhtml</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/registrationPage.xhtml</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/converter/PriceConverter.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/languages/lang_fr.properties</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/resources/css/cssLayout.css</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/managedBean/ClientManager.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/resources/css/default.css</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/monComptePage.xhtml</file>
-            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/index.xhtml</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/connectionPage.xhtml</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/monComptePage.xhtml</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/validators/ClientBirthDateValidator.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/managedBean/CategorieManager.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/livreByCategoriesPage.xhtml</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/managedBean/LivreManager.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/detailLivre.xhtml</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/shoppingBagPage.xhtml</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/validators/PhoneValidator.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/managedBean/CommandeManager.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/validators/AeraCodeValidator.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/resources/css/cssLayout.css</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/converter/PercentConverter.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/managedBean/ClientManager.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/web/index.xhtml</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/validators/EmailValidator.java</file>
             <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/managedBean/InternationalizationMB.java</file>
+            <file>file:/C:/Users/client/Documents/progra_Java_web/Biblios/Biblios-war/src/java/managedBean/BirthDateManager.java</file>
         </group>
     </open-files>
 </project-private>

@@ -32,6 +32,10 @@ public interface LivreFacadeLocal {
 
     List<model.Livre> getLivreByCategorie(int idCategorie);
     
+    List<model.Livre> search(String stringRecherche, int idlangue);
+
+    model.Livre getModelLivreById(Integer id);
+    
 
     
 }

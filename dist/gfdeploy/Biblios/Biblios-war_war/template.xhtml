@@ -6,7 +6,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     
-    <f:loadBundle basename="languages.lang" var="message"/>
+    
     
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,23 +15,26 @@
         <title>Facelets Template</title>
     </h:head>
 
+    <f:view locale="#{internationalizationMB.local}" />
+    
     <h:body>
-
+        <f:loadBundle basename="languages.lang" var="message"/>
         <div id="top">
             <ui:insert name="top">
                 <a href="index.xhtml"> <img id="logo" alt="Logo site" src="./images/logo_site.jpg" /> </a>
-                <h:form id="header_form">
+                <h:form id="header_form">                    
                     
                     <c:if test="#{empty clientManager.clientToManage}">
+                        <h:commandLink class="command_link" value="#{message.home}" action="faces/index.xhtml"/> 
                         <h:commandLink class="command_link" value="#{message.connectionLink}" action="faces/connectionPage.xhtml" />
                         <h:commandLink class="command_link" value="#{message.registrationLink}" action="faces/registrationPage.xhtml"/>                    
                     </c:if>
                     <c:if test="#{not empty clientManager.clientToManage}">
                         <h:outputText value="#{message.welcomMessage}, #{clientManager.clientToManage.prenom}"/>
-                        <h:commandLink class="command_link" value="#{message.myAccountLink}" action="faces/index.xhtml"/>  
-                        <h:commandLink value="#{message.deconnection}" action="#{clientManager.exitClient()}"/>
+                        <h:commandLink class="command_link" value="#{message.home}" action="faces/index.xhtml"/>   
+                        <h:commandLink class="command_link" value="#{message.deconnection}" action="#{clientManager.exitClient()}"/>
                     </c:if>
-                    <h:commandLink class="command_link" value="#{message.shoppingBagLink}" action="faces/shoppingBagPage.xhtml"/>
+                    <h:commandLink class="command_link" value="#{message.shoppingBagLink} (#{commandeManager.countNbItemInBasket()})" action="faces/shoppingBagPage.xhtml"/>
                     <h:commandButton class="command_button" value="FR" action="#{internationalizationMB.setToFrench()}"/>
                     <h:commandButton class="command_button" value="EN" action="#{internationalizationMB.setToEnglish()}" />                
                 </h:form>
@@ -46,13 +49,23 @@
                     <ul>                        
                         <c:forEach items="#{categorieManager.categoriesToManage}" var="categorie">
                             <li class ='IntIl'>
-                                <h:outputText class="command_button" value="#{categorie.tradEN}"/>
+                                <c:if test="#{internationalizationMB.isInFrench()}">
+                                    <h:commandLink class="command_link" value="#{categorie.tradFR}" action="#{livreManager.chooseCategory(categorie)}"/>
+                                </c:if>
+                                <c:if test="#{internationalizationMB.isInEnglish()}">
+                                    <h:commandLink class="command_link" value="#{categorie.tradEN}" action="#{livreManager.chooseCategory(categorie)}"/>
+                                </c:if>
                             </li>
                         </c:forEach>
                     </ul> 
-                    <h:outputText value="#{clientManager.countNbClient()}" /> <br />
-                    <h:outputText value="#{clientManager.testString}" /> <br />
                 </h:form>
+                <div>
+                    <h:form>
+                    <h:outputLabel value="#{message.searchLabel}"/><br/>
+                    <h:inputText id="searchInput" value="#{livreManager.rechercheString}"></h:inputText><br/>  <br />                  
+                    <h:commandButton style="margin-left: 40%;" value="#{message.goSearch}" action="#{livreManager.search()}"></h:commandButton>
+                    </h:form>
+                </div>
                 </ui:insert>
             </div>
             

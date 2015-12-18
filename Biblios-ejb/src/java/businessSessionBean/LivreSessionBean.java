@@ -6,6 +6,7 @@
 package businessSessionBean;
 
 import entityFacades.LivreFacadeLocal;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -20,4 +21,14 @@ public class LivreSessionBean implements LivreSessionBeanLocal {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    @Override
+    public List<model.Livre> getLivreByCategorieId(int idCategorie) {
+        return livreFacade.getLivreByCategorie(idCategorie);
+    }
+    
+    @Override
+    public List<model.Livre> search(String rechercheString, Integer idlangue){
+        return livreFacade.search(rechercheString, idlangue);
+    }
 }

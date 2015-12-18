@@ -5,7 +5,9 @@
  */
 package entityFacades;
 
+import entityBeans.Commande;
 import entityBeans.Lignecommande;
+import java.util.HashMap;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,5 +31,9 @@ public interface LignecommandeFacadeLocal {
     List<Lignecommande> findRange(int[] range);
 
     int count();
+
+    void addLigneCommandeHashMap(HashMap<Integer, model.LigneCommande> ligneCommandeMap, Commande idCommande);
+
+    void addCommandeAndLigneCommande(model.Commande modelCommande);
     
 }

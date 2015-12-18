@@ -18,48 +18,16 @@
     <f:view locale="#{internationalizationMB.local}" />
     
     <h:body>
+        <f:loadBundle basename="languages.lang" var="message"/>
         <ui:composition template="./template.xhtml">
-            <ui:define name="content">
-                <h:outputText value="Test"/>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Nullam ut consequat ipsum. 
-                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                        Nulla facilisi. Pellentesque dignissim dolor vestibulum eros lobortis blandit. 
-                        Integer luctus auctor justo at hendrerit. 
-                        Donec neque odio, lobortis at mi ac, ultrices finibus orci. 
-                        Curabitur sed sem eget enim dapibus porttitor sit amet ut sapien. 
-                        Integer nunc felis, consectetur vitae rhoncus quis, dignissim quis sem. 
-                        Aenean pretium, massa sit amet porta sagittis, augue mauris rhoncus lorem, a ornare odio elit vel risus. 
-                        Quisque iaculis porttitor ex nec finibus. 
-                        Sed eget turpis in ex tempor pretium.
-                    </p>
+            <ui:define name="content">                
+                <h2>#{message.home}</h2>
+                <c:if test="#{clientManager.connectionExecuted}">
+                    <h:outputText class="confirmationMessage" value="#{message.connectionExecuted}"/><br/><br/>
+                </c:if>
+                
+                <h:outputText class="introMessage" value="#{message.standardMessage}" /><br/><br/>
+                <h:outputText class="introMessage" value="#{message.standardMessageBis}" />
             </ui:define>
         </ui:composition>
     </h:body>

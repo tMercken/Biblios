@@ -68,7 +68,7 @@ public class Livre implements Serializable {
     @ManyToOne(optional = false)
     private Maisonedition maisoneditionId;
     @JoinColumn(name = "PROMO_ID", referencedColumnName = "ID")
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Promo promoId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idlivre")
     private Collection<Traductionlivre> traductionlivreCollection;

@@ -10,10 +10,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.Locale;
 
-/**
- *
- * @author client
- */
+
 @Named(value = "internationalizationMB")
 @SessionScoped
 public class InternationalizationMB implements Serializable {
@@ -26,6 +23,14 @@ public class InternationalizationMB implements Serializable {
     
     public Locale getLocal() {
         return local;
+    }
+    
+    public Boolean isInFrench() {
+        return (this.local.getDisplayLanguage() == "français");
+    }
+    
+    public Boolean isInEnglish() {
+        return !(this.local.getDisplayLanguage() == "français");
     }
     
     public void setToFrench() {

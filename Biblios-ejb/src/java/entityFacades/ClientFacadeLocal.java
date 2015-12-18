@@ -32,7 +32,7 @@ public interface ClientFacadeLocal {
     
     model.Client getClientFromMail(String mail);
 
-    model.Client getClientFromMailAndPassword(String mail, String password);
+   Boolean getClientFromMailAndPassword(String mail, String password);
 
     void addClient(model.Client modelClient);
     

@@ -29,5 +29,7 @@ public interface CommandeFacadeLocal {
     List<Commande> findRange(int[] range);
 
     int count();
+
+    Commande addCommande(model.Commande modelCommande);
     
 }

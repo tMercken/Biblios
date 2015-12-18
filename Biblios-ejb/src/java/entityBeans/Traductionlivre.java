@@ -32,7 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Traductionlivre.findAll", query = "SELECT t FROM Traductionlivre t"),
     @NamedQuery(name = "Traductionlivre.findById", query = "SELECT t FROM Traductionlivre t WHERE t.id = :id"),
     @NamedQuery(name = "Traductionlivre.findByTitre", query = "SELECT t FROM Traductionlivre t WHERE t.titre = :titre"),
-    @NamedQuery(name = "Traductionlivre.findByResume", query = "SELECT t FROM Traductionlivre t WHERE t.resume = :resume")})
+    @NamedQuery(name = "Traductionlivre.findByResume", query = "SELECT t FROM Traductionlivre t WHERE t.resume = :resume"),
+    @NamedQuery(name = "Traductionlivre.getLivreTrad", query = "SELECT t FROM Traductionlivre t WHERE t.idlangue = :idlangue AND t.idlivre = :idlivre"),
+    @NamedQuery(name = "Traductionlivre.search", query = "SELECT t FROM Traductionlivre t WHERE t.titre like :itemRech AND t.idlangue = :idlangue")})
 public class Traductionlivre implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

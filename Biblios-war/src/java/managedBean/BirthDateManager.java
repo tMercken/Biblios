@@ -10,11 +10,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import model.BirthDate;
 
-/**
- *
- * @author client
- */
+
 @Named(value = "birthDateManager")
 @SessionScoped
 public class BirthDateManager implements Serializable {

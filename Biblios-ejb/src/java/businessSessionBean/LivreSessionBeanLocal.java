@@ -5,6 +5,7 @@
  */
 package businessSessionBean;
 
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,5 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface LivreSessionBeanLocal {
+
+    List<model.Livre> getLivreByCategorieId(int idCategorie);
     
+    List<model.Livre> search(String rechercheString, Integer idlangue);
 }
